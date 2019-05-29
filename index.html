@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Задание 3</title>
+    <!-- Подключение Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- подключение логики -->
+    <script async src="task_3.js"></script>
+    <!-- подключение стилей -->
+    <link href="stylegrid.css" rel="stylesheet">
+    <link href="color.css" rel="stylesheet">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <div id="app">
+        <div style="margin: 20px">
+            <h2>Найди пару</h2>
+            <p>Щелкай на квадрат, откроется цвет. Ищи дальше, если найденный цвет совпал, то ты нашел пару. Если нет, то
+                квадраты окрашиваются обратно в белый<p>
+                    <div class="container">
+                        <div class="r1c1 border" @click="changeStatus(0, $event)"
+                            :class="{ [color[0]]:  open[0].show  }" :id='0'></div>
+                        <div class="r1c2 border" @click="changeStatus(1, $event)"
+                            :class="{ [color[1]]:  open[1].show  }" id='1'></div>
+                        <div class="r1c3 border" @click="changeStatus(2, $event)"
+                            :class="{ [color[2]]:  open[2].show  }" id='2'></div>
+                        <div class="r1c4 border" @click="changeStatus(3, $event)"
+                            :class="{ [color[3]]:  open[3].show  }" id='3'></div>
+                        <div class="r2c1 border" @click="changeStatus(4, $event)"
+                            :class="{ [color[4]]:  open[4].show  }" id='4'></div>
+                        <div class="r2c2 border" @click="changeStatus(5, $event)"
+                            :class="{ [color[5]]:  open[5].show  }" id='5'></div>
+                        <div class="r2c3 border" @click="changeStatus(6, $event)"
+                            :class="{ [color[6]]:  open[6].show  }" id='6'></div>
+                        <div class="r2c4 border" @click="changeStatus(7, $event)"
+                            :class="{ [color[7]]:  open[7].show  }" id='7'></div>
+                        <div class="r3c1 border" @click="changeStatus(8, $event)"
+                            :class="{ [color[8]]:  open[8].show  }" id='8'></div>
+                        <div class="r3c2 border" @click="changeStatus(9, $event)"
+                            :class="{ [color[9]]:  open[9].show  }" id='9'></div>
+                        <div class="r3c3 border" @click="changeStatus(10, $event)"
+                            :class="{ [color[10]]: open[10].show }" id='10'></div>
+                        <div class="r3c4 border" @click="changeStatus(11, $event)"
+                            :class="{ [color[11]]: open[11].show }" id='11'></div>
+                        <div class="r4c1 border" @click="changeStatus(12, $event)"
+                            :class="{ [color[12]]: open[12].show }" id='12'></div>
+                        <div class="r4c2 border" @click="changeStatus(13, $event)"
+                            :class="{ [color[13]]: open[13].show }" id='13'></div>
+                        <div class="r4c3 border" @click="changeStatus(14, $event)"
+                            :class="{ [color[14]]: open[14].show }" id='14'></div>
+                        <div class="r4c4 border" @click="changeStatus(15, $event)"
+                            :class="{ [color[15]]: open[15].show }" id='15'></div>
+                    </div>
+                    <p>Время игры: {{normhour}}:{{normmin}}:{{normsec}}</p>
+                    <button style="margin-top: 10px" v-if="start" @click="showColor">Начать игру</button>
+                    <div v-if="countdown>0">
+                        <p v-if="!start">Игра начнется через {{countdown}}</p>
+                    </div>
+        </div>
+    </div>
+</body>
+
+</html>
